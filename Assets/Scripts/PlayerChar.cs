@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class PlayerChar : MonoBehaviour 
 {
-   
+    protected float playerD = 25;
 
 }

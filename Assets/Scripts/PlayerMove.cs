@@ -12,6 +12,8 @@ public class PlayerMove : PlayerChar
     public Transform groundCheck;
     private float groundRadius = 0.1f;
     public LayerMask whatIsGround;
+    public Transform attackCheck;
+    public float attackRadius = 0.35f;
 
     private void Start()
     {
@@ -19,11 +21,13 @@ public class PlayerMove : PlayerChar
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        anim.SetBool("Attacking", false);
         Move();
         IsGround();
         Jump();
+        Attack();
     }
 
     private void Flip()
@@ -59,5 +63,15 @@ public class PlayerMove : PlayerChar
             Flip();
         else if (moveX < 0 && isFacingRight)
             Flip();
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("Attacking", true);
+            Fight2D.Action(attackCheck.position, attackRadius, 9, playerD, false);
+        }
+
     }
 }
