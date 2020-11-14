@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMove : PlayerChar
+public class PlayerMove : Player
 {
     public float speed = 5f;
     public float jumpForce = 7000f;
@@ -14,20 +14,24 @@ public class PlayerMove : PlayerChar
     public LayerMask whatIsGround;
     public Transform attackCheck;
     public float attackRadius = 0.35f;
-
+    private bool blocking = false;
+    public bool Blocking { get { return blocking; } }
     private void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();        
     }
 
     private void FixedUpdate()
     {
-        anim.SetBool("Attacking", false);
-        Move();
         IsGround();
-        Jump();
-        Attack();
+
+            Move();
+            Jump();
+            Attack();
+            Block();   
+    
+              
     }
 
     private void Flip()
@@ -46,7 +50,7 @@ public class PlayerMove : PlayerChar
 
     private void Jump()
     {
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.Mouse1))
         {
             anim.SetBool("Grounded", false);
             rb.AddForce(Vector2.up * jumpForce);
@@ -56,22 +60,44 @@ public class PlayerMove : PlayerChar
     {
         float moveX = Input.GetAxis("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(moveX));
-
+        if (!Input.GetKey(KeyCode.Mouse1))
         rb.MovePosition(rb.position + Vector2.right * moveX * speed * Time.deltaTime);
 
-        if (moveX > 0 && !isFacingRight)
+        if (moveX > 0 && !isFacingRight && !Input.GetKey(KeyCode.Mouse1))
+
             Flip();
-        else if (moveX < 0 && isFacingRight)
+        else if (moveX < 0 && isFacingRight && !Input.GetKey(KeyCode.Mouse1))
             Flip();
     }
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.Mouse1))
         {
             anim.SetBool("Attacking", true);
-            Fight2D.Action(attackCheck.position, attackRadius, 9, playerD, false);
+            Fight2D.Action(attackCheck.position, attackRadius, 9, PlayerD, false);     
+        }
+
+        else
+        {
+            anim.SetBool("Attacking", false);
         }
 
     }
+
+    private void Block()
+    {
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            blocking = true;
+            anim.Play("Player_block");
+
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            blocking = false;
+            anim.Play("Player_idle");
+        }
+    }
+
 }
