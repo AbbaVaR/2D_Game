@@ -6,7 +6,6 @@ public class PlayerMove : Player
     public float speed = 5f;
     public float jumpForce = 7000f;
     protected bool isFacingRight = true;
-    public Animator anim;
     private Rigidbody2D rb;
     private bool isGrounded = false;
     public Transform groundCheck;
@@ -18,20 +17,13 @@ public class PlayerMove : Player
     public bool Blocking { get { return blocking; } }
     private void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();        
     }
 
     private void FixedUpdate()
     {
-        IsGround();
-
-            Move();
-            Jump();
-            Attack();
-            Block();   
-    
-              
+        //IsGround();
+        ControlPlayer();
     }
 
     private void Flip()
@@ -42,51 +34,41 @@ public class PlayerMove : Player
         transform.localScale = theScale;
     }
 
-    private void IsGround()
+    
+
+    private void ControlPlayer()
     {
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", isGrounded);
-    }
-
-    private void Jump()
-    {
+        //движение
+        float moveX = Input.GetAxis("Horizontal");
+        anim.SetFloat("Speed", Mathf.Abs(moveX));
+        if (!Input.GetKey(KeyCode.Mouse1))
+        rb.MovePosition(rb.position + Vector2.right * moveX * speed * Time.deltaTime);
+        if (moveX > 0 && !isFacingRight && !Input.GetKey(KeyCode.Mouse1))
+            Flip();
+        else if (moveX < 0 && isFacingRight && !Input.GetKey(KeyCode.Mouse1))
+            Flip();
+        //прыжок
         if (isGrounded && Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.Mouse1))
         {
             anim.SetBool("Grounded", false);
             rb.AddForce(Vector2.up * jumpForce);
         }
-    }
-    private void Move()
-    {
-        float moveX = Input.GetAxis("Horizontal");
-        anim.SetFloat("Speed", Mathf.Abs(moveX));
-        if (!Input.GetKey(KeyCode.Mouse1))
-        rb.MovePosition(rb.position + Vector2.right * moveX * speed * Time.deltaTime);
-
-        if (moveX > 0 && !isFacingRight && !Input.GetKey(KeyCode.Mouse1))
-
-            Flip();
-        else if (moveX < 0 && isFacingRight && !Input.GetKey(KeyCode.Mouse1))
-            Flip();
-    }
-
-    private void Attack()
-    {
+        //атака
         if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.Mouse1))
         {
             anim.SetBool("Attacking", true);
-            Fight2D.Action(attackCheck.position, attackRadius, 9, PlayerD, false);     
+            Fight2D.Action(attackCheck.position, attackRadius, 9, PlayerD, false);
         }
 
         else
         {
             anim.SetBool("Attacking", false);
         }
+        //блок
 
-    }
-
-    private void Block()
-    {
         if (Input.GetKey(KeyCode.Mouse1))
         {
             blocking = true;

@@ -1,49 +1,33 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Experimental.Director;
-using UnityEngine.UI;
-public class Player : MonoBehaviour 
+
+public class Player : AboutPlayer 
 {
-    protected float maxHP = 100f;
-    private float curHP;
-    public  float CurHP { get { return curHP; } set { curHP = value; } }
-    private float playerD = 25f;
-    public float PlayerD { get { return playerD; } }
-    protected float maxStam = 100f;
-    private float curStam = 100f;
-    public float CurStam { get { return curStam; } set { curStam = value; } }
-    public Animator anim;
-    public Image hpBar;
-    private PlayerMove pM;
-    public float fill = 1;
-
-
     void Start()
     {
-        curHP = maxHP;
+        CurHP = MaxHP;
+        CurStam = MaxStam;
     }
      
     void FixedUpdate()
     {
-        HPbar();
     }
 
     public void PlayerDamage(float dam)
     {
-        if (!pM.Blocking) curHP -= dam; 
-        if (curHP <= 0)
+        //if (!pM.Blocking) 
+        CurHP -= dam; 
+        if (CurHP <= 0)
         {
             Die(); 
         }
     }
 
-    private void HPbar()
+    /*private void HPbar()
     {
-        fill =  curHP/maxHP;
-        hpBar.fillAmount = fill;
-    }
+        FillHpBar =  CurHP/MaxHP;
+        hpBar.fillAmount = FillHpBar;
+    }*/
 
     void Die()
     {
