@@ -1973,6 +1973,7 @@ GameObject:
   - component: {fileID: 1471922476}
   - component: {fileID: 1471922478}
   - component: {fileID: 1471922477}
+  - component: {fileID: 1471922479}
   m_Layer: 5
   m_Name: HpBar
   m_TagString: Untagged
@@ -2041,6 +2042,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471922475}
   m_CullTransparentMesh: 0
+--- !u!114 &1471922479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471922475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731a89837358bd346aa58c0d0b9e2df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 412238361}
+  hpBar: {fileID: 1471922477}
 --- !u!1 &1478067752
 GameObject:
   m_ObjectHideFlags: 0

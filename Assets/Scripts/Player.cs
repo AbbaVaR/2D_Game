@@ -1,8 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : AboutPlayer 
 {
+    public event Action<float> HPchange;
+    public event Action<float> SPchange;
+    private float hpvalue;
+    private float HPvalue
+    {
+        get
+        {
+            return hpvalue;
+        }
+        set
+        {
+            if (value > 0) hpvalue = value;
+            else hpvalue = 0;
+        }
+    }
     void Start()
     {
         CurHP = MaxHP;
@@ -16,12 +32,21 @@ public class Player : AboutPlayer
 
     public void PlayerDamage(float dam)
     {
-        if (!Blocking) 
-        CurHP -= dam; 
+        if (!Blocking)
+        {
+        CurHP -= dam;
+            HPvalue = CurHP / MaxHP * 100;
+        }
+        if (HPchange != null)
+        {
+            
+            HPchange.Invoke(HPvalue);
+        }
         if (CurHP <= 0)
         {
             Die(); 
         }
+
     }
 
     void Die()

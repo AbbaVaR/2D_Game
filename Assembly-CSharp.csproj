@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\AboutPlayer.cs" />
     <Compile Include="Assets\Scripts\DamageArea.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\HPbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
