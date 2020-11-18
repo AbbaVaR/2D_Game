@@ -795,7 +795,6 @@ GameObject:
   - component: {fileID: 412238356}
   - component: {fileID: 412238359}
   - component: {fileID: 412238361}
-  - component: {fileID: 412238360}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -926,27 +925,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &412238360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412238354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d760940311110e04784fb871bc6b7017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 412238359}
-  speed: 5
-  jumpForce: 7000
-  groundCheck: {fileID: 491249193}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  attackCheck: {fileID: 2106704108}
-  attackRadius: 0.35
 --- !u!114 &412238361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,6 +938,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 412238359}
+  rb: {fileID: 412238357}
+  attackCheck: {fileID: 2106704108}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCheck: {fileID: 491249193}
 --- !u!1 &491249192
 GameObject:
   m_ObjectHideFlags: 0
