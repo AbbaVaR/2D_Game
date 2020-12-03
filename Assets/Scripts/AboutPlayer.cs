@@ -4,8 +4,20 @@ using UnityEngine.UI;
 public class AboutPlayer : MonoBehaviour {
     public float MaxHP { get; set; } = 100f;
     public float CurHP { get; set; }
-    public float MaxStam { get; set; } = 100f;
-    public float CurStam { get; set; }
+    public float MaxSP { get; set; } = 100f;
+    private float curSP;
+    public float CurSP 
+        {
+            get
+            {
+                return curSP;
+            }
+            set
+            {
+                if (curSP > MaxSP) curSP = MaxSP;
+                else curSP = value;
+            }
+        }
     public float PlayerD { get; set; } = 30f;
     public float Speed { get; } = 5f;
     public float JumpForce { get; } = 7000f;

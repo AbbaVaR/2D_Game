@@ -22,7 +22,7 @@ public class Player : AboutPlayer
     void Start()
     {
         CurHP = MaxHP;
-        CurStam = MaxStam;
+        CurSP = MaxSP;
     }
      
     void FixedUpdate()
@@ -49,6 +49,31 @@ public class Player : AboutPlayer
 
     }
 
+    public void SPDamage(float dam)
+    {
+        CurSP -= dam;
+        AddSp();
+        
+        if (SPchange != null)
+        {
+            SPchange.Invoke(CurSP/MaxSP*100);
+        }
+    }
+
+    private void AddSp()
+    {
+        if (CurSP < MaxSP)
+        {
+            if (Blocking) StartCoroutine(AddSp_(1.3f, MaxSP * 0.01f));
+            else StartCoroutine(AddSp_(1.3f, MaxSP * 0.1f));
+        } 
+    }
+
+    IEnumerator AddSp_(float timeToWait, float add)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        SPDamage(-add);
+    }
     void Die()
     {
         anim.Play("Player_die");
@@ -91,6 +116,7 @@ public class Player : AboutPlayer
         //атака
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            SPDamage(30);
             anim.SetBool("Attacking", true);
             Fight2D.Action(attackCheck.position, AttackRadius, 9, PlayerD, false);
         }

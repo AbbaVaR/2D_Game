@@ -57,12 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Fight.cs" />
+    <Compile Include="Assets\Scripts\HpBar.cs" />
     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\AboutPlayer.cs" />
     <Compile Include="Assets\Scripts\DamageArea.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\HPbar.cs" />
+    <Compile Include="Assets\Scripts\SpBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

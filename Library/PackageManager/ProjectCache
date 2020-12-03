@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637411950774371388
-    m_Hash: 2429001870
+      ticks: 637424995651923760
+    m_Hash: 3670018741
   m_LockFileStatus:
     m_FilePath: D:/MyGame/2D_Game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637411950910439241
-    m_Hash: 664634206
+      ticks: 637424995651923760
+    m_Hash: 1935382850
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
