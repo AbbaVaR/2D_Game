@@ -15,9 +15,11 @@ public class AboutPlayer : MonoBehaviour {
             set
             {
                 if (curSP > MaxSP) curSP = MaxSP;
+                else if (curSP < 0) curSP = 0;
                 else curSP = value;
             }
         }
+    public float BlockStr { get; set; } = 1f;
     public float PlayerD { get; set; } = 30f;
     public float Speed { get; } = 5f;
     public float JumpForce { get; } = 7000f;
