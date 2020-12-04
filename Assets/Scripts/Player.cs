@@ -21,6 +21,11 @@ public class Player : AboutPlayer
     }
     void Start()
     {
+        MoneyLVL = (int)100 + 100 * Lvl / 5;
+        MaxHP = 100 * HpLvl;
+        MaxSP = 100 * SpLvl;
+        PlayerD = 30 * StrLvl;
+        BlockStr = 1 * BlockLvl;
         CurHP = MaxHP;
         CurSP = MaxSP;
     }

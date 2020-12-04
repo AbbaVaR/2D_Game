@@ -254,6 +254,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 61629221851254470, guid: a5e0ed4b877d76940a2f620519ab103d,
+        type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e0ed4b877d76940a2f620519ab103d, type: 3}
 --- !u!1001 &68118844
@@ -1343,6 +1348,7 @@ GameObject:
   - component: {fileID: 412238356}
   - component: {fileID: 412238359}
   - component: {fileID: 412238361}
+  - component: {fileID: 412238360}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -1473,6 +1479,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &412238360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412238354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0c4f9c4f79d5b49bff52c1c51fead8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 412238361}
 --- !u!114 &412238361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1915,6 +1934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 412238361}
+  plusLvl: {fileID: 412238360}
 --- !u!4 &842646307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4700807816962492, guid: 4f2a3f509da4c884a8a6aa02a6de5f7f,
