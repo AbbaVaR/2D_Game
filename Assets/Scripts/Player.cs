@@ -111,18 +111,18 @@ public class Player : AboutPlayer
         anim.SetFloat("Speed", Mathf.Abs(moveX));
        // if (!Blocking)
             rb.MovePosition(rb.position + Vector2.right * moveX * Speed * Time.deltaTime);
-        if (moveX > 0 && !IsFacingRight && !Input.GetKey(KeyCode.Mouse1))
+        if (moveX > 0 && !IsFacingRight && !Blocking)
             Flip();
-        else if (moveX < 0 && IsFacingRight && !Input.GetKey(KeyCode.Mouse1))
+        else if (moveX < 0 && IsFacingRight && !Blocking)
             Flip();
         //прыжок
-        if (IsGrounded && Input.GetKeyDown(KeyCode.Space) && !Blocking)
+        if (IsGrounded && Input.GetButtonDown("Jump") && !Blocking)
         {
             anim.SetBool("Grounded", false);
             rb.AddForce(Vector2.up * JumpForce);
         }
         //атака
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetButtonDown("Fire1"))
         {
             SPDamage(30);
             anim.SetBool("Attacking", true);
@@ -135,13 +135,13 @@ public class Player : AboutPlayer
         }
         //блок
 
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetButton("Fire2"))
         {
             Blocking = true;
             anim.Play("Player_block");
 
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetButtonUp("Fire2"))
         {
             Blocking = false;
             anim.Play("Player_idle");
