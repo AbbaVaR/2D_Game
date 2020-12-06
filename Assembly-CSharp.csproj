@@ -56,18 +56,22 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Fight.cs" />
     <Compile Include="Assets\Scripts\ControlPlayer.cs" />
-    <Compile Include="Assets\Scripts\HpBar.cs" />
+    <Compile Include="Assets\Scripts\Bars\HpBar.cs" />
     <Compile Include="Assets\Scripts\SaveData.cs" />
     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\SavePoint.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\AboutPlayer.cs" />
     <Compile Include="Assets\Scripts\Pluslvl.cs" />
     <Compile Include="Assets\Scripts\DamageArea.cs" />
-    <Compile Include="Assets\Scripts\SpBar.cs" />
+    <Compile Include="Assets\Scripts\Bars\SpBar.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\SaveLoad.cs" />
+    <Compile Include="Assets\Scripts\Bars\Mbar.cs" />
+    <Compile Include="Assets\Scripts\Money.cs" />
+    <Compile Include="Assets\Scripts\Heal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

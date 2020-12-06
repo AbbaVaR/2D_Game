@@ -8,7 +8,6 @@ public class DamageArea : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-        player.PlayerDamage(70);
-        SaveLoad.SaveGame(player);
+        player.PlayerDamage(70);      
     }
 }

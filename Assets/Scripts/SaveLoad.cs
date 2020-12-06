@@ -11,7 +11,7 @@ public static class SaveLoad //Создание статичного класс�
 
 	public static void SaveGame(Player character) //Метод для сохранения
 	{
-
+		Debug.Log("Save");
 		FileStream fs = new FileStream(path, FileMode.Create); //Создание файлового потока
 
 		SaveData data = new SaveData(character); //Получение данных
@@ -31,7 +31,7 @@ public static class SaveLoad //Создание статичного класс�
 			SaveData data = formatter.Deserialize(fs) as SaveData; //Получение данных
 
 			fs.Close(); //Закрытие потока
-			Console.WriteLine("Load");
+			Debug.Log("Load");
 
 			return data; //Возвращение данных
 		}

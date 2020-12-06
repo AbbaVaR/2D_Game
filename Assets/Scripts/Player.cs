@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Player : AboutPlayer
 {
-    //public Player p = new Player();
     public event Action<float> HPchange;
     public event Action<float> SPchange;
+    public event Action<float> Mchange;
+
     private float hpvalue;
     private float HPvalue
     {
@@ -86,6 +87,15 @@ public class Player : AboutPlayer
         }
     }
 
+    public void AddMoney(int money)
+    {
+        Money += money;
+
+        if (Mchange != null)
+        {
+            Mchange.Invoke(Money);
+        }
+    }
     IEnumerator AddSp_(float timeToWait, float add)
     {
         yield return new WaitForSeconds(timeToWait);
@@ -125,6 +135,7 @@ public class Player : AboutPlayer
         if (IsGrounded && Input.GetButtonDown("Jump") && !Blocking)
         {
             anim.SetBool("Grounded", false);
+            
             rb.AddForce(Vector2.up * JumpForce);
         }
         //атака
@@ -156,7 +167,7 @@ public class Player : AboutPlayer
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            SaveLoad.LoadGame();
+            LoadCharacter();
         }
     }
 
@@ -209,3 +220,4 @@ public class Player : AboutPlayer
         }
     }
 }
+
