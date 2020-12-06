@@ -1934,7 +1934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 412238361}
-  plusLvl: {fileID: 412238360}
 --- !u!4 &842646307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4700807816962492, guid: 4f2a3f509da4c884a8a6aa02a6de5f7f,

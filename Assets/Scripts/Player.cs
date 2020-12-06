@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : AboutPlayer
 {
+    //public Player p = new Player();
     public event Action<float> HPchange;
     public event Action<float> SPchange;
     private float hpvalue;
@@ -152,7 +153,13 @@ public class Player : AboutPlayer
             anim.Play("Player_idle");
         }
 
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            SaveLoad.LoadGame();
+        }
     }
+
     private void Tired()
     {
         Blocking = false;
@@ -182,5 +189,23 @@ public class Player : AboutPlayer
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void LoadCharacter()
+    {
+        SaveData data = SaveLoad.LoadGame(); //Получение данных
+
+        if (!data.Equals(null)) //Если данные есть
+        {
+            MaxHP = data.HP;
+            CurHP = data.currHP;
+
+            MaxSP = data.MP;
+            CurSP = data.currXP;
+
+
+            Lvl = data.level;
+            transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+        }
     }
 }

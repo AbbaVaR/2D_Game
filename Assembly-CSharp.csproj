@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Fight.cs" />
     <Compile Include="Assets\Scripts\ControlPlayer.cs" />
     <Compile Include="Assets\Scripts\HpBar.cs" />
+    <Compile Include="Assets\Scripts\SaveData.cs" />
     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\AboutPlayer.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Assets\Scripts\DamageArea.cs" />
     <Compile Include="Assets\Scripts\SpBar.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
