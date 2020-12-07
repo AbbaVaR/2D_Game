@@ -28,7 +28,8 @@ public class SavePoint : MonoBehaviour
 
     void FixedUpdate()
     {
-        startPoint();
+        if (startPoint != null)
+            startPoint();
     }
 
 }

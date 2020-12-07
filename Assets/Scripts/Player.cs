@@ -125,7 +125,7 @@ public class Player : AboutPlayer
         //движение
         float moveX = Input.GetAxis("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(moveX));
-       // if (!Blocking)
+        //if (!Blocking)
             rb.MovePosition(rb.position + Vector2.right * moveX * Speed * Time.deltaTime);
         if (moveX > 0 && !IsFacingRight && !Blocking)
             Flip();
