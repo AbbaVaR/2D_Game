@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Button1 : DoorButton
 {
+    public Help help;
     public override void Press()
     {
-        Destroy(gameObject);
+        anim.Play("ButtonUnL");
+        help.help(180);
     }
 }

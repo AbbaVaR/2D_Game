@@ -8,6 +8,7 @@ public class DoorFactory1 : DoorAbsFactory
     public override void OnTriggerEnter2D(Collider2D obj)
     { 
         b.Press();
-        d.Open();
+        if( d != null)
+            d.Open();
     }
 }

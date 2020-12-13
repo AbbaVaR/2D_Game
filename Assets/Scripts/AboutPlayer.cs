@@ -22,7 +22,7 @@ public class AboutPlayer : MonoBehaviour {
     public float BlockStr { get; set; }
     public float PlayerD { get; set; }
     public float Speed { get; } = 5f;
-    public float JumpForce { get; } = 3000f;
+    public float JumpForce { get; } = 8000f;
     public bool IsFacingRight { get; set; } = true;
     public bool IsGrounded { get; set; } = false;
     public float GroundRadius { get; } = 0.1f;

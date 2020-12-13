@@ -6,6 +6,7 @@ public abstract class DoorAbsFactory : MonoBehaviour
 }
 public abstract class DoorButton : MonoBehaviour
 {
+    public Animator anim;
     public abstract void Press();
 }
 
