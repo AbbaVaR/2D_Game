@@ -6,6 +6,7 @@ public class SavePoint : MonoBehaviour
 {
     delegate void StartPoint();
     StartPoint startPoint;
+    public Player player;
     void OnTriggerEnter2D(Collider2D obj)
     {
         Debug.Log("1");
@@ -22,6 +23,8 @@ public class SavePoint : MonoBehaviour
     {
         if (Input.GetButtonDown("Use"))
         {
+            player.CurHP = player.MaxHP;
+            player.PlayerDamage(0);
             Debug.Log("SavePoint");
         }
     }

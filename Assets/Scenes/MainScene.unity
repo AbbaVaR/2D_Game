@@ -751,6 +751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SavePoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7780281537114693916, guid: 64a93644631c1774cbede53298d9a8e0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 412238361}
     - target: {fileID: 7780281537114693919, guid: 64a93644631c1774cbede53298d9a8e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -6234,6 +6239,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SavePoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7780281537114693916, guid: 64a93644631c1774cbede53298d9a8e0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 412238361}
     - target: {fileID: 7780281537114693919, guid: 64a93644631c1774cbede53298d9a8e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -12805,6 +12815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SavePoint
       objectReference: {fileID: 0}
+    - target: {fileID: 7780281537114693916, guid: 64a93644631c1774cbede53298d9a8e0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 412238361}
     - target: {fileID: 7780281537114693919, guid: 64a93644631c1774cbede53298d9a8e0,
         type: 3}
       propertyPath: m_RootOrder
