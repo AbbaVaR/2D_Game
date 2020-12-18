@@ -30,6 +30,8 @@ public class Player : AboutPlayer
         BlockStr = 1 * BlockLvl;
         CurHP = MaxHP;
         CurSP = MaxSP;
+        if (SaveData.load)
+            LoadCharacter();
     }
 
     void FixedUpdate()
@@ -193,6 +195,8 @@ public class Player : AboutPlayer
     {
         Blocking = false;
         anim.Play("Player_die");
+        LoadCharacter();
+        anim.Play("Player_idle");
     }
     private void Flip()
     {
@@ -204,19 +208,28 @@ public class Player : AboutPlayer
 
     public void LoadCharacter()
     {
-        SaveData data = SaveLoad.LoadGame(); //Получение данных
+        SaveData data = SaveLoad.LoadGame();
 
-        if (!data.Equals(null)) //Если данные есть
+        if (!data.Equals(null)) 
         {
-            MaxHP = data.HP;
-            CurHP = data.currHP;
+            CurHP = data.curHP;
+            CurSP = data.curSP;
+            Lvl = data.lvl;
+            Money = data.money;
+            MaxHP = data.hpLvl;
+            SpLvl = data.spLvl;
+            StrLvl = data.strLvl;
+            BlockLvl = data.blockLvl;
+            MoneyLVL = (int)100 + 100 * Lvl / 5;
+            MaxHP = 100 * HpLvl;
+            MaxSP = 100 * SpLvl;
+            PlayerD = 30 * StrLvl;
+            BlockStr = 1 * BlockLvl;
 
-            MaxSP = data.MP;
-            CurSP = data.currXP;
-
-
-            Lvl = data.level;
             transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+            HPchange.Invoke(CurHP);
+            SPchange.Invoke(CurSP);
+            Mchange.Invoke(Money);
         }
     }
 }

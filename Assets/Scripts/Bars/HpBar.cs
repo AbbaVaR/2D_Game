@@ -23,7 +23,7 @@ public class HpBar : MonoBehaviour
     {
         if (player == null) return;
 
-        hpBar.text = "HP: " + value.ToString() + "%";
+        hpBar.text = "HP: " + ((int)value).ToString() + "%";
     }
 }
 

@@ -23,7 +23,7 @@ public class Mbar : MonoBehaviour
     {
         if (player == null) return;
 
-        mBar.text =  value.ToString();
+        mBar.text = player.MoneyLVL.ToString() + " / " + value.ToString();
     }
 }
 

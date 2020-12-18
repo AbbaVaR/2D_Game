@@ -25,7 +25,7 @@ public class SpBar : MonoBehaviour
         else if (value > 100)
             spBar.text = "SP: 100%";
         else
-            spBar.text = "SP: " + value.ToString() + "%";
+            spBar.text = "SP: " + ((int)value).ToString() + "%";
     }
 }
 

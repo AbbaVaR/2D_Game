@@ -1,43 +1,42 @@
 ﻿using UnityEngine;
-using System.IO; //Библиотек для работы с файлами
-using System.Runtime.Serialization.Formatters.Binary; //Библиотека для работы бинарной сериализацией
+using System.IO; 
+using System.Runtime.Serialization.Formatters.Binary; 
 using System;
 
-public static class SaveLoad //Создание статичного класса позволит использовать методы без объявления его экземпляров 
+public static class SaveLoad 
 {
 
-	private static string path = "d://MyGame/gamesave.game"; //Путь к сохранению. Вы можете использовать любое расширение
-	private static BinaryFormatter formatter = new BinaryFormatter(); //Создание сериализатора 
-
-	public static void SaveGame(Player character) //Метод для сохранения
+	private static string path = Application.persistentDataPath + "/gamesave.oursave"; 
+	private static BinaryFormatter formatter = new BinaryFormatter(); 
+	public static void SaveGame(Player character) 
 	{
 		Debug.Log("Save");
-		FileStream fs = new FileStream(path, FileMode.Create); //Создание файлового потока
+		FileStream fs = new FileStream(path, FileMode.Create); 
 
-		SaveData data = new SaveData(character); //Получение данных
+		SaveData data = new SaveData(character); 
 
-		formatter.Serialize(fs, data); //Сериализация данных
+		formatter.Serialize(fs, data); 
 
-		fs.Close(); //Закрытие потока
+		fs.Close(); 
 
 	}
 
-	public static SaveData LoadGame() //Метод загрузки
+	public static SaveData LoadGame() 
 	{
 		if (File.Exists(path))
-		{ //Проверка существования файла сохранения
-			FileStream fs = new FileStream(path, FileMode.Open); //Открытие потока
+		{ 
+			FileStream fs = new FileStream(path, FileMode.Open); 
 
-			SaveData data = formatter.Deserialize(fs) as SaveData; //Получение данных
+			SaveData data = formatter.Deserialize(fs) as SaveData; 
 
-			fs.Close(); //Закрытие потока
+			fs.Close();
 			Debug.Log("Load");
 
-			return data; //Возвращение данных
+			return data; 
 		}
 		else
 		{
-			return null; //Если файл не существует, будет возвращено null
+			return null; 
 		}
 
 	}

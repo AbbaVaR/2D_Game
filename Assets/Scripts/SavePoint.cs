@@ -7,6 +7,7 @@ public class SavePoint : MonoBehaviour
     delegate void StartPoint();
     StartPoint startPoint;
     public Player player;
+    public OpenIngameMenu menu;
     void OnTriggerEnter2D(Collider2D obj)
     {
         Debug.Log("1");
@@ -23,9 +24,12 @@ public class SavePoint : MonoBehaviour
     {
         if (Input.GetButtonDown("Use"))
         {
+            SaveLoad.SaveGame(player);
             player.CurHP = player.MaxHP;
-            player.PlayerDamage(0);
             Debug.Log("SavePoint");
+            menu.ShowHideIGM();
+            player.PlayerDamage(0);
+
         }
     }
 
