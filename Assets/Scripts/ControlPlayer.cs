@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,7 +58,7 @@ public class Normal : IControlPlayer
         {
             SPDamage(30);
             anim.SetBool("Attacking", true);
-            Fight2D.Action(attackCheck.position, AttackRadius, 9, PlayerD, false);
+            Fight.Action(attackCheck.position, AttackRadius, 9, PlayerD);
         }
         else
         {
@@ -111,4 +111,4 @@ public class Die : IControlPlayer
         anim.SetBool("Grounded", IsGrounded);
         anim.Play("Player_die");
     }
-}
+}*/

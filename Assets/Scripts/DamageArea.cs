@@ -9,7 +9,11 @@ public class DamageArea : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-        player.PlayerDamage(70);
-        anim.SetBool("Active", true);
+        if (obj.tag == "Player")
+        {
+            player.PlayerDamage(70);
+            anim.SetBool("Active", true);
+        }
+        
     }
 }

@@ -15,6 +15,7 @@ public class Pluslvl : MonoBehaviour
             player.AddMoney(-player.MoneyLVL);
             player.MoneyLVL = (int)100 + 100 * player.Lvl / 5;
             player.AddMoney(0);
+            player.CurHP = player.MaxHP;
             player.PlayerDamage(0);
         }
 

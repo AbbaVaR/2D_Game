@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class Fight2D : Enemy
+public class Fight : Enemy
 {
 
-	// функция возвращает ближайший объект из массива, относительно указанной позиции
+/*	// функция возвращает ближайший объект из массива, относительно указанной позиции
 	static GameObject NearTarget(Vector3 position, Collider2D[] array)
 	{
 		Collider2D current = null;
@@ -21,33 +21,38 @@ public class Fight2D : Enemy
 		}
 
 		return (current != null) ? current.gameObject : null;
-	}
+	}*/
 
 	// point - точка контакта
 	// radius - радиус поражения
 	// layerMask - номер слоя, с которым будет взаимодействие
 	// damage - наносимый урон
-	// allTargets - должны-ли получить урон все цели, попавшие в зону поражения
-	public static void Action(Vector2 point, float radius, int layerMask, float damage, bool allTargets)
+	public static void Action(Vector2 point, float radius, int layerMask, float damage, bool flag)
 	{
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(point, radius, 1 << layerMask);
 
-		if (!allTargets)
-		{
-			GameObject obj = NearTarget(point, colliders);
-			if (obj != null && obj.GetComponent<Enemy>())
-			{
-				obj.GetComponent<Enemy>().enemyHP -= damage;
-			}
-			return;
-		}
-
 		foreach (Collider2D hit in colliders)
 		{
-			if (hit.GetComponent<Enemy>())
-			{
-				hit.GetComponent<Enemy>().enemyHP -= damage;
+			
+			if (flag)
+            {
+				if (hit.GetComponent<Player>())
+				{
+					hit.GetComponent<Player>().PlayerDamage(damage);
+				}
 			}
+
+			else
+            {
+				if (hit.GetComponent<Patrol>())
+				{
+					hit.GetComponent<Patrol>().TakeDamage(damage);
+				}
+            }
+			
+			
+
+			
 		}
 	}
 }

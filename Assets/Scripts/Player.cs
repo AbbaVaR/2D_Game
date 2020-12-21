@@ -8,19 +8,7 @@ public class Player : AboutPlayer
     public event Action<float> SPchange;
     public event Action<float> Mchange;
 
-    private float hpvalue;
-    private float HPvalue
-    {
-        get
-        {
-            return hpvalue;
-        }
-        set
-        {
-            if (value > 0) hpvalue = value;
-            else hpvalue = 0;
-        }
-    }
+ 
     void Start()
     {
         MoneyLVL = (int)100 + 100 * Lvl / 5;
@@ -28,7 +16,6 @@ public class Player : AboutPlayer
         MaxSP = 100 * SpLvl;
         PlayerD = 30 * StrLvl;
         BlockStr = 1 * BlockLvl;
-        CurHP = MaxHP;
         CurSP = MaxSP;
         if (SaveData.load)
             LoadCharacter();
@@ -46,7 +33,6 @@ public class Player : AboutPlayer
         {
             CurHP -= dam;
             anim.Play("Player_hurt");
-            HPvalue = CurHP / MaxHP * 100;
         }
         else
         {
@@ -54,12 +40,11 @@ public class Player : AboutPlayer
             if (CurSP < tempD)
                 CurHP -= tempD - CurSP;
             SPDamage(tempD);
-            HPvalue = CurHP / MaxHP * 100;
         }
 
         if (HPchange != null)
         {
-            HPchange.Invoke(HPvalue);
+            HPchange.Invoke(CurHP);
         }
     }
 
@@ -70,7 +55,7 @@ public class Player : AboutPlayer
 
         if (SPchange != null)
         {
-            SPchange.Invoke(CurSP / MaxSP * 100);
+            SPchange.Invoke(CurSP);
         }
     }
 
@@ -119,6 +104,7 @@ public class Player : AboutPlayer
             Normal();
         }
     }
+
     private void Normal ()
     {
         anim.SetBool("Tired", false);
@@ -145,7 +131,7 @@ public class Player : AboutPlayer
         {
             SPDamage(30);
             anim.SetBool("Attacking", true);
-            Fight2D.Action(attackCheck.position, AttackRadius, 9, PlayerD, false);
+            Fight.Action(attackCheck.position, AttackRadius, 9, PlayerD, false);
         }
 
         else
@@ -197,15 +183,17 @@ public class Player : AboutPlayer
         anim.Play("Player_die");
         LoadCharacter();
         anim.Play("Player_idle");
+
     }
-    private void Flip()
+
+private void Flip()
     {
         IsFacingRight = !IsFacingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
+    
     public void LoadCharacter()
     {
         SaveData data = SaveLoad.LoadGame();

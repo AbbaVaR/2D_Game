@@ -19,11 +19,10 @@ public class HpBar : MonoBehaviour
         player.HPchange -= UpdateValue;
     }
 
-    public void UpdateValue (float value)
+    public void UpdateValue (float value) 
     {
         if (player == null) return;
 
-        hpBar.text = "HP: " + ((int)value).ToString() + "%";
+        hpBar.text = "HP: " + ((int)value).ToString() + " / " + player.MaxHP.ToString();
     }
 }
-
