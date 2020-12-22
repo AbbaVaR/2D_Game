@@ -14,7 +14,7 @@ public class Player : AboutPlayer
         MoneyLVL = (int)100 + 100 * Lvl / 5;
         MaxHP = 100 * HpLvl;
         MaxSP = 100 * SpLvl;
-        PlayerD = 30 * StrLvl;
+        PlayerD = 15 * StrLvl;
         BlockStr = 1 * BlockLvl;
         CurSP = MaxSP;
         if (SaveData.load)
