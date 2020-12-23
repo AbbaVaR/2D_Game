@@ -78,67 +78,67 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11816}
     - Class: 114
-      Script: {instanceID: 11836}
+      Script: {instanceID: 11832}
     - Class: 114
-      Script: {instanceID: 11988}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12028}
+      Script: {instanceID: 12024}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12164}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12276}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12340}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12430}
     - Class: 114
-      Script: {instanceID: 12478}
+      Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12608}
+      Script: {instanceID: 12604}
     - Class: 114
-      Script: {instanceID: 12674}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 12726}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12754}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12846}
     - Class: 114
-      Script: {instanceID: 12938}
+      Script: {instanceID: 12934}
     - Class: 114
-      Script: {instanceID: 12948}
+      Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 13054}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 13124}
+      Script: {instanceID: 13120}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 13128}
     - Class: 114
-      Script: {instanceID: 13224}
+      Script: {instanceID: 13220}
     - Class: 114
-      Script: {instanceID: 13388}
+      Script: {instanceID: 13384}
     - Class: 114
-      Script: {instanceID: 13480}
+      Script: {instanceID: 13476}
     - Class: 114
-      Script: {instanceID: 13494}
+      Script: {instanceID: 13490}
+    - Class: 114
+      Script: {instanceID: 13524}
     - Class: 114
       Script: {instanceID: 13528}
     - Class: 114
-      Script: {instanceID: 13532}
+      Script: {instanceID: 13582}
     - Class: 114
-      Script: {instanceID: 13586}
+      Script: {instanceID: 13594}
     - Class: 114
-      Script: {instanceID: 13598}
+      Script: {instanceID: 13716}
     - Class: 114
-      Script: {instanceID: 13720}
+      Script: {instanceID: 13886}
     - Class: 114
-      Script: {instanceID: 13890}
-    - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13908}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -179,25 +179,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 11988}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12028}
+      Script: {instanceID: 12024}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 12164}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12430}
     - Class: 114
-      Script: {instanceID: 12478}
+      Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12948}
+      Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 13054}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 13494}
+      Script: {instanceID: 13490}
     - Class: 114
-      Script: {instanceID: 13890}
+      Script: {instanceID: 13886}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -783,4 +783,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/MainScene.unity
-  playerPath: C:/2D_Game/OurGame/2D_Game.exe
+  playerPath: "C:/2D_Game/\u0410\u0431\u0431\u0430\u0437\u043E\u0432,\u041F\u0435\u0442\u0440\u043E\u0432,\u041A\u0443\u043B\u0438\u0435\u0432_1191\u0431/2D_Game.exe"
