@@ -1,28 +1,7 @@
 ﻿using UnityEngine;
 
-public class Fight : Enemy
+public class Fight : MonoBehaviour
 {
-
-/*	// функция возвращает ближайший объект из массива, относительно указанной позиции
-	static GameObject NearTarget(Vector3 position, Collider2D[] array)
-	{
-		Collider2D current = null;
-		float dist = Mathf.Infinity;
-
-		foreach (Collider2D coll in array)
-		{
-			float curDist = Vector3.Distance(position, coll.transform.position);
-
-			if (curDist < dist)
-			{
-				current = coll;
-				dist = curDist;
-			}
-		}
-
-		return (current != null) ? current.gameObject : null;
-	}*/
-
 	// point - точка контакта
 	// radius - радиус поражения
 	// layerMask - номер слоя, с которым будет взаимодействие
@@ -33,26 +12,10 @@ public class Fight : Enemy
 
 		foreach (Collider2D hit in colliders)
 		{
-			
-			if (flag)
-            {
-				if (hit.GetComponent<Player>())
-				{
-					hit.GetComponent<Player>().PlayerDamage(damage);
-				}
+			if (hit.GetComponent<AbsEnemyControl>())
+			{
+				hit.GetComponent<AbsEnemyControl>().TakeDamage(damage);
 			}
-
-			else
-            {
-				if (hit.GetComponent<Patrol>())
-				{
-					hit.GetComponent<Patrol>().TakeDamage(damage);
-				}
-            }
-			
-			
-
-			
 		}
 	}
 }

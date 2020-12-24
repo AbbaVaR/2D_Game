@@ -7,7 +7,11 @@ public class Money : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-        player.AddMoney(200);
-        Destroy(gameObject);
+        if (obj.tag == "Player")
+        {
+            player.AddMoney(200);
+            Destroy(gameObject);
+        }
+           
     }
 }

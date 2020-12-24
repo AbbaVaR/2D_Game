@@ -7,7 +7,7 @@ public class Pluslvl : MonoBehaviour
    public Player player;
     public void HpUp()
     {
-        if (player.Money > player.MoneyLVL)
+        if (player.Money >= player.MoneyLVL)
         {
             player.Lvl += 1;
             player.HpLvl += 0.2f;
@@ -23,7 +23,7 @@ public class Pluslvl : MonoBehaviour
 
     public void SpUp()
     {
-        if (player.Money > player.MoneyLVL)
+        if (player.Money >= player.MoneyLVL)
         {
             player.Lvl += 1;
             player.SpLvl += 0.2f;
@@ -38,7 +38,7 @@ public class Pluslvl : MonoBehaviour
 
     public void StrUp()
     {
-        if (player.Money > player.MoneyLVL)
+        if (player.Money >= player.MoneyLVL)
         {
             player.Lvl += 1;
             player.StrLvl += 0.2f;
@@ -52,7 +52,7 @@ public class Pluslvl : MonoBehaviour
 
     public void BlockUp()
     {
-        if(player.Money > player.MoneyLVL)
+        if(player.Money >= player.MoneyLVL)
         {
             player.Lvl += 1;
             player.BlockLvl += 0.2f;

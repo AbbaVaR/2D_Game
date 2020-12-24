@@ -7,7 +7,10 @@ public class Heal : MonoBehaviour
     public Player player;
     void OnTriggerEnter2D(Collider2D obj)
     {
-        player.PlayerDamage(player.MaxHP*-0.6f);
-        Destroy(gameObject);
+        if (obj.tag == "Player")
+        {
+            player.PlayerDamage(player.MaxHP * -0.6f);
+            Destroy(gameObject);
+        } 
     }
 }

@@ -56,22 +56,25 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Heal.cs" />
-     <Compile Include="Assets\Scripts\BossPatrol.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BossAttack.cs" />
      <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\Fight.cs" />
-     <Compile Include="Assets\Scripts\ControlPlayer.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BossControl.cs" />
      <Compile Include="Assets\Scripts\Bars\HpBar.cs" />
      <Compile Include="Assets\Scripts\OpenDoor\Door1.cs" />
      <Compile Include="Assets\Scripts\SaveData.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
+     <Compile Include="Assets\Scripts\Enemy\AbsEnemyControl.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
-     <Compile Include="Assets\Scripts\Patrol.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\Enemy\AbsEnemyAttack.cs" />
      <Compile Include="Assets\Scripts\SavePoint.cs" />
      <Compile Include="Assets\Scripts\Help.cs" />
+     <Compile Include="Assets\Scripts\Finish.cs" />
      <Compile Include="Assets\Scripts\OpenDoor\DoorFactory2.cs" />
      <Compile Include="Assets\Scripts\OpenDoor\Button1.cs" />
      <Compile Include="Assets\Scripts\Bars\Mbar.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyControl.cs" />
      <Compile Include="Assets\Scripts\OpenIngameMenu.cs" />
      <Compile Include="Assets\Scripts\AboutPlayer.cs" />
      <Compile Include="Assets\Scripts\Money.cs" />
@@ -80,9 +83,11 @@
      <Compile Include="Assets\Scripts\Pluslvl.cs" />
      <Compile Include="Assets\Scripts\OpenDoor\Door2.cs" />
      <Compile Include="Assets\Scripts\DamageArea.cs" />
+     <Compile Include="Assets\Scripts\OpenDoor\FinishDoor.cs" />
      <Compile Include="Assets\Scripts\Bars\SpBar.cs" />
      <Compile Include="Assets\Scripts\OpenDoor\DoorAbsFactory.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\AbsSavePoint.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/2D_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

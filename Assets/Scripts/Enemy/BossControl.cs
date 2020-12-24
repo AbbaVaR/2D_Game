@@ -1,31 +1,31 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-public class Enemy : MonoBehaviour
+
+public class BossControl : AbsEnemyControl
 {
     public float speed;
-
     public float positionOfPatrol;
     public Transform point;
     bool moveingRight;
     public Transform player;
     public float stoppingDistance;
+    public float enemyHP = 150f;
+    public Player p;
+    public FinishDoor finishDoor;
     bool chill = true;
     bool angry = false;
 
-	void Start () 
-	{
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-	void FixedUpdate () 
-	{
+    void FixedUpdate()
+    {
         CheckPlayer();
-        if (Math.Abs(transform.position.x - player.position.x) > 0.85)
-            Walk();
     }
 
-    void CheckPlayer()
+    public override void CheckPlayer()
     {
         if (Vector2.Distance(transform.position, point.position) < positionOfPatrol && angry == false)
         {
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Walk()
+    public override void Walk()
     {
         if (chill == true)
         {
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Chill()
+    public override void Chill()
     {
         if (transform.position.x > point.position.x + positionOfPatrol)
         {
@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Angry()
+    public override void Angry()
     {
         if (transform.position.x > player.position.x)
         {
@@ -104,5 +104,15 @@ public class Enemy : MonoBehaviour
 
         }
     }
-}
 
+    public override void TakeDamage(float damage)
+    {
+        enemyHP -= damage;
+        if (enemyHP <= 0)
+        {
+            Destroy(gameObject);
+            p.AddMoney(2000);
+            finishDoor.Open();
+        }
+    }
+}

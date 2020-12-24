@@ -1,7 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - BossPatrol
+    - BossAttack
+    - BossControl
     - Button1
     - Button2
     - DamageArea
@@ -9,7 +10,10 @@ ScriptsOnlyBuild:
     - Door2
     - DoorFactory1
     - DoorFactory2
-    - Enemy
+    - EnemyAttack
+    - EnemyControl
+    - Finish
+    - FinishDoor
     - Heal
     - Help
     - HpBar
@@ -17,7 +21,6 @@ ScriptsOnlyBuild:
     - Menu
     - Money
     - OpenIngameMenu
-    - Patrol
     - Player
     - PlayerCamera
     - Pluslvl
@@ -90,6 +93,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12164}
     - Class: 114
+      Script: {instanceID: 12186}
+    - Class: 114
       Script: {instanceID: 12276}
     - Class: 114
       Script: {instanceID: 12340}
@@ -98,47 +103,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12604}
+      Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 12670}
+      Script: {instanceID: 12672}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 12754}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 12846}
+      Script: {instanceID: 12826}
     - Class: 114
-      Script: {instanceID: 12934}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12940}
     - Class: 114
-      Script: {instanceID: 13050}
+      Script: {instanceID: 12950}
     - Class: 114
-      Script: {instanceID: 13120}
+      Script: {instanceID: 13056}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 13126}
     - Class: 114
-      Script: {instanceID: 13220}
+      Script: {instanceID: 13134}
     - Class: 114
-      Script: {instanceID: 13384}
+      Script: {instanceID: 13226}
     - Class: 114
-      Script: {instanceID: 13476}
+      Script: {instanceID: 13390}
     - Class: 114
-      Script: {instanceID: 13490}
+      Script: {instanceID: 13482}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 13496}
     - Class: 114
-      Script: {instanceID: 13528}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13582}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 13594}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13716}
+      Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 13886}
+      Script: {instanceID: 13692}
     - Class: 114
-      Script: {instanceID: 13908}
+      Script: {instanceID: 13724}
+    - Class: 114
+      Script: {instanceID: 13894}
+    - Class: 114
+      Script: {instanceID: 13916}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -191,13 +200,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12950}
     - Class: 114
-      Script: {instanceID: 13050}
+      Script: {instanceID: 13056}
     - Class: 114
-      Script: {instanceID: 13490}
+      Script: {instanceID: 13496}
     - Class: 114
-      Script: {instanceID: 13886}
+      Script: {instanceID: 13894}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -235,10 +244,10 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: 81444d3f32f0fe25ce24de30d5d39450
+      Hash: 1693041651a1cf8e967176b6d5ddb437
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: BossPatrol
+    className: BossAttack
   - hash:
       serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
@@ -319,7 +328,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 853411fe1d5f5d0a0bb40d5c40add783
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Fight
@@ -353,6 +362,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 28a82fd3130f61e218277eb8b1d01642
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossControl
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -445,16 +460,16 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 83e769eee07fc231384c812eedbb8224
+      Hash: 3f9aad78b3751876ed88a0041c7e51b0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerCamera
   - hash:
       serializedVersion: 2
-      Hash: 81444d3f32f0fe25ce24de30d5d39450
+      Hash: 1693041651a1cf8e967176b6d5ddb437
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Patrol
+    className: EnemyAttack
   - hash:
       serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
@@ -485,6 +500,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Finish
   - hash:
       serializedVersion: 2
       Hash: cefe0292b71b8ce69c304fdf2e1cd43d
@@ -535,10 +556,10 @@ ScriptsOnlyBuild:
     className: Mbar
   - hash:
       serializedVersion: 2
-      Hash: 853411fe1d5f5d0a0bb40d5c40add783
+      Hash: decd7d785e3d23bb68c0213c8560d5bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Enemy
+    className: EnemyControl
   - hash:
       serializedVersion: 2
       Hash: f7bb6096199e0cf058d5d69878184cf4
@@ -671,6 +692,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FinishDoor
   - hash:
       serializedVersion: 2
       Hash: 7f091e291fcbf748752ea26017920b87

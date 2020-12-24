@@ -8,7 +8,7 @@ public class Player : AboutPlayer
     public event Action<float> SPchange;
     public event Action<float> Mchange;
 
- 
+
     void Start()
     {
         MoneyLVL = (int)100 + 100 * Lvl / 5;
@@ -32,7 +32,8 @@ public class Player : AboutPlayer
         if (!Blocking)
         {
             CurHP -= dam;
-            anim.Play("Player_hurt");
+            if(dam>0)
+                anim.Play("Player_hurt");
         }
         else
         {
@@ -114,7 +115,7 @@ public class Player : AboutPlayer
         float moveX = Input.GetAxis("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(moveX));
         if (!Blocking)
-            rb.MovePosition(rb.position + Vector2.right * moveX * Speed * Time.deltaTime);
+            rb.velocity = new Vector2(moveX * Speed, rb.velocity.y);
         if (moveX > 0 && !IsFacingRight && !Blocking)
             Flip();
         else if (moveX < 0 && IsFacingRight && !Blocking)
@@ -123,8 +124,8 @@ public class Player : AboutPlayer
         if (IsGrounded && Input.GetButtonDown("Jump") && !Blocking)
         {
             anim.SetBool("Grounded", false);
-            
-            rb.AddForce(Vector2.up * JumpForce);
+            //rb.AddForce(Vector2.up * JumpForce);
+            rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
         //атака
         if (Input.GetButtonDown("Fire1"))

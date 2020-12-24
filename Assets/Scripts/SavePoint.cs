@@ -2,9 +2,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class SavePoint : MonoBehaviour
+public class SavePoint : AbsSavePoint
 {
-    delegate void StartPoint();
     StartPoint startPoint;
     public Player player;
     public OpenIngameMenu menu;
@@ -20,9 +19,9 @@ public class SavePoint : MonoBehaviour
         startPoint -= PointSave;
     }
 
-    private void PointSave()
+    public override void PointSave()
     {
-        if (Input.GetButtonDown("Use"))
+        if (Input.GetButtonDown("Submit"))
         {
             SaveLoad.SaveGame(player);
             player.CurHP = player.MaxHP;
@@ -33,7 +32,7 @@ public class SavePoint : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (startPoint != null)
             startPoint();

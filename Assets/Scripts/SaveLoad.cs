@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary; 
 using System;
 
-public static class SaveLoad 
+public static class SaveLoad
 {
 
 	private static string path = Application.persistentDataPath + "/gamesave.oursave"; 
